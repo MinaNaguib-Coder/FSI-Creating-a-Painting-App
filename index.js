@@ -1,3 +1,4 @@
+// Change the backgroundColor of the Clicked Pixelto default color blue
 let selectedColor = 'blue'
 const painting = document.querySelector('.painting')
 
@@ -20,15 +21,22 @@ for(let i = 0; i < colorChoices.length; i ++){
     })
 }
 
+// When the user double-clicks a pixel, turn it white.
+painting.addEventListener('dblclick', function(e){
+	e.target.style.backgroundColor = 'white'
+})
+
+
+
+// Add a Clear button, which sets every pixel's color to white when clicked.
+let clear = document.createElement('clear')
+clear.textContent = 'Clear'
+document.body.append(clear)
+
 // Not working
-//let clear = document.createElement('clear')
-//clear.textContent = 'Clear'
-//document.body.append(clear)
-
-
 // event listeners
-//for(let i = 0; i < colorChoices.length; i ++){
-    //clear.addEventListener('click', function(){
-        //painting[i].style.backgroundColor = 'white'
-   // })
-//}
+
+const pixels = document.querySelectorAll('.painting')
+clear.addEventListener('click', function(){
+    pixels.style.backgroundColor = 'white'
+})
